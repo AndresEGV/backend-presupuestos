@@ -1,4 +1,4 @@
-📚 API REST Backend Presupuestos
+# 📚 API REST Backend Presupuestos
 
 ¡Bienvenido al repositorio del Backend Presupuestos! Este proyecto es una API REST diseñada para ser el núcleo de una aplicación de presupuestos y gestión de gastos, permitiendo a los usuarios:
 
@@ -12,7 +12,7 @@ Actualizar y eliminar registros según sus necesidades.
 
 Este backend proporciona todos los endpoints necesarios para que los usuarios puedan interactuar fácilmente con sus datos y llevar un control eficiente de sus finanzas.
 
-🚀 Características principales
+## 🚀 Características principales
 
 Endpoints CRUD: GET, POST, PUT, DELETE.
 
@@ -22,9 +22,9 @@ Validación de datos de entrada.
 
 Autenticación y autorización con JWT.
 
-[Otros puntos clave como frameworks, tecnologías o funcionalidades adicionales].
 
-🛠️ Tecnologías utilizadas
+
+## 🛠️ Tecnologías utilizadas
 
 Lenguaje: Node.js / TypeScript.
 
@@ -34,33 +34,25 @@ Base de datos: PostgreSQL.
 
 Autenticación: JWT.
 
-📂 Estructura del proyecto
+ORM: Sequelize
 
-📦 backend-api
+ ## 📂 Estructura del proyecto
 
-├── 📁 src
 
-│ ├── 📁 config # Configuración (DB, variables, servicios globales)
-
-│ ├── 📁 controllers # Controladores: lógica de los endpoints
-
-│ ├── 📁 models # Modelos: esquemas o entidades (ORM/ODM)
-
-│ ├── 📁 routes # Rutas y mapeo de endpoints
-
-│ ├── 📁 middlewares # Middleware: validación, autenticación, manejo de errores
-
-│ ├── 📁 utils # Utilidades y funciones auxiliares
-
-│ ├── 📄 server.ts # Configuración e inicialización del servidor
-
-│ └── 📄 index.ts # Punto de entrada principal
-
-├── 📄 README.md # Este archivo 😄
-
+```bash
+├── 📁src
+│   ├── 📁 config # Configuración (DB, variables, servicios globales) 
+│   ├── 📁 controllers # Controladores: lógica de los endpoints
+│   ├── 📁 models # Modelos: esquemas o entidades (ORM/ODM)
+│   ├── 📁 middlewares # Middleware: validación, autenticación, manejo de errores
+│   ├── 📁 utils # Utilidades y funciones auxiliares
+│   ├── 📄 server.ts # Configuración e inicialización del servidor
+│   ├── 📄 index.ts # Punto de entrada principal
 ├── 📄 .env # Variables de entorno (configuración sensible)
-
-└── 📄 package.json # Dependencias y scripts del proyecto
+├── 📄 README.md # Este archivo 😄
+├── 📄 package.json # Dependencias y scripts del proyecto
+└── .gitignore
+```
 
 ## 📄 Documentación de Endpoints
 
