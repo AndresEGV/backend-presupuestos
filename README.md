@@ -38,7 +38,21 @@ ORM: Sequelize
 
  ## 📂 Estructura del proyecto
 
-📦 backend-api
+
+```bash
+├── 📁src
+│   ├── 📁 config # Configuración (DB, variables, servicios globales) 
+│   ├── 📁 controllers # Controladores: lógica de los endpoints
+│   ├── 📁 models # Modelos: esquemas o entidades (ORM/ODM)
+│   ├── 📁 middlewares # Middleware: validación, autenticación, manejo de errores
+│   ├── 📁 utils # Utilidades y funciones auxiliares
+|   ├── 📄 server.ts # Configuración e inicialización del servidor
+|   ├── 📄 index.ts # Punto de entrada principal
+├── 📄 .env # Variables de entorno (configuración sensible)
+├── 📄 README.md # Este archivo 😄
+├── 📄 package.json # Dependencias y scripts del proyecto
+└── .gitignore
+```
 
 ├── 📁 src
 
@@ -64,6 +78,7 @@ ORM: Sequelize
 
 └── 📄 package.json # Dependencias y scripts del proyecto
 
+```
 ## 📄 Documentación de Endpoints
 
 | **Método** | **Endpoint**          | **Descripción**                 |
