@@ -11,17 +11,16 @@ Este backend proporciona todos los endpoints necesarios para que los usuarios pu
 Endpoints CRUD: GET, POST, PUT, DELETE.
 Manejo eficiente de errores.
 Validación de datos de entrada.
-Autenticación y autorización .
+Autenticación y autorización con JWT.
 [Otros puntos clave como frameworks, tecnologías o funcionalidades adicionales].
 🛠️ Tecnologías utilizadas
-Lenguaje: [ Node.js / Typescript]
-Framework: [ Express ]
-Base de datos: [ PostgreSQL]
-Autenticación: [ JWT ]
+Lenguaje: Node.js / TypeScript.
+Framework: Express.
+Base de datos: PostgreSQL.
+Autenticación: JWT.
 
 📂 Estructura del proyecto
-plaintext
-Copiar código
+
 📦 backend-api
 ├── 📁 src
 │ ├── 📁 config # Configuración (DB, variables, servicios globales)
@@ -36,65 +35,41 @@ Copiar código
 ├── 📄 .env # Variables de entorno (configuración sensible)
 └── 📄 package.json # Dependencias y scripts del proyecto
 
-<!-- 📄 Documentación de Endpoints
-Método	Endpoint	Descripción
-GET	/api/v1/budgets	Obtiene todos los presupuestos.
-GET	/api/v1/budgets/:id	Obtiene un item por ID.
-POST	/api/v1/budgets	Crea un nuevo item.
-PUT	/api/v1/budgets/:id	Actualiza un item existente.
-DELETE	/api/v1/budgets/:id	Elimina un item por ID.
-Ejemplo de solicitud: GET /api/v1/budgets
-Request: -->
+## 📄 Documentación de Endpoints
 
-bash
-Copiar código
-curl -X GET http://localhost:3000/api/v1/budgewts
-Response:
+| **Método** | **Endpoint**          | **Descripción**                 |
+| ---------- | --------------------- | ------------------------------- |
+| `GET`      | `/api/v1/budgets`     | Obtiene todos los presupuestos. |
+| `GET`      | `/api/v1/budgets/:id` | Obtiene un presupuesto por ID.  |
+| `POST`     | `/api/v1/budgets`     | Crea un nuevo presupuesto.      |
+| `PUT`      | `/api/v1/budgets/:id` | Actualiza un presupuesto.       |
+| `DELETE`   | `/api/v1/budgets/:id` | Elimina un presupuesto.         |
 
-<!-- json
-Copiar código
-[
-  {
-    "id": 1,
-    "name": "Item 1",
-    "description": "Descripción del item",
-    "createdAt": "2024-11-22T10:00:00Z"
-  }
-] -->
+## 🛠️ Instalación y configuración
 
-🛠️ Instalación y configuración
-Clona este repositorio:
+1. **Clona este repositorio**:
 
-bash
-Copiar código
-git clone https://github.com/tu-usuario/tu-repositorio.git
-Instala las dependencias:
+   ```bash
+   git clone https://github.com/tu-usuario/tu-repositorio.git
 
-bash
-Copiar código
-npm install
+   ```
 
-<!-- Configura las variables de entorno:
+2. **Instala las dependencias:**:
 
-Crea un archivo .env con las siguientes variables:
+   ```bash
+   npm install
 
-plaintext
-Copiar código
-DB_URI=mongodb://localhost:27017/miBaseDeDatos
-PORT=3000
-JWT_SECRET=supersecreto
-Inicia el servidor: -->
+   ```
 
-bash
-Copiar código
-npm start
-Accede a la API en http://localhost:3000.
+3. **Configura las variables de entorno:**:
 
-🔍 Testing
-Para ejecutar pruebas unitarias y funcionales, usa el siguiente comando:
+   ```bash
+   DB_URI=postgresql://localhost:5432/miBaseDeDatos
 
-bash
-Copiar código
-npm test
-🗂️ Licencia
-Este proyecto está bajo la Licencia MIT.
+   ```
+
+4. **Inicia el servidor**:
+
+   ```bash
+   npm start
+   ```
