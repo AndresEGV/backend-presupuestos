@@ -34,6 +34,8 @@ Base de datos: PostgreSQL.
 
 Autenticación: JWT.
 
+ORM: Sequelize
+
  ## 📂 Estructura del proyecto
 
 📦 backend-api
