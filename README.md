@@ -22,8 +22,6 @@ Validación de datos de entrada.
 
 Autenticación y autorización con JWT.
 
-
-
 ## 🛠️ Tecnologías utilizadas
 
 Lenguaje: Node.js / TypeScript.
@@ -36,12 +34,11 @@ Autenticación: JWT.
 
 ORM: Sequelize
 
- ## 📂 Estructura del proyecto
-
+## 📂 Estructura del proyecto
 
 ```bash
 ├── 📁src
-│   ├── 📁 config # Configuración (DB, variables, servicios globales) 
+│   ├── 📁 config # Configuración (DB, variables, servicios globales)
 │   ├── 📁 controllers # Controladores: lógica de los endpoints
 │   ├── 📁 models # Modelos: esquemas o entidades (ORM/ODM)
 │   ├── 📁 middlewares # Middleware: validación, autenticación, manejo de errores
@@ -90,5 +87,5 @@ ORM: Sequelize
 4. **Inicia el servidor**:
 
    ```bash
-   npm start
+   npm run dev
    ```

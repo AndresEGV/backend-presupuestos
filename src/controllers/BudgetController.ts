@@ -25,25 +25,15 @@ export class BudgetController {
   };
 
   static getById = async (req: Request, res: Response) => {
-    try {
-      const { id } = req.params;
-      const budget = await Bugdget.findByPk(id);
-      if (!budget) {
-        const error = new Error("Presupuesto no encontrado");
-        res.status(404).json({ message: error.message });
-        return;
-      }
-      res.json(budget);
-    } catch (error) {
-      console.log(error);
-      res.status(500).json({ message: "Hubo un error" });
-    }
+    res.json(req.budget);
   };
 
   static updateById = async (req: Request, res: Response) => {
-    console.log("budget");
+    await req.budget.update(req.body);
+    res.json("Presupuesto actualizado correctamente");
   };
   static deleteById = async (req: Request, res: Response) => {
-    console.log("budget");
+    await req.budget.destroy();
+    res.json("Presupuesto eliminado correctamente");
   };
 }
