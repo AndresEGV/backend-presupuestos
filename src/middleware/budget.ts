@@ -1,5 +1,5 @@
 import type { Request, Response, NextFunction } from "express";
-import { param, validationResult } from "express-validator";
+import { param, validationResult, body } from "express-validator";
 import Bugdget from "../models/Budget";
 
 declare global {
@@ -34,8 +34,8 @@ export const validateBudgetExist = async (
   next: NextFunction
 ) => {
   try {
-    const { id } = req.params;
-    const budget = await Bugdget.findByPk(id);
+    const { budgetId } = req.params;
+    const budget = await Bugdget.findByPk(budgetId);
     if (!budget) {
       const error = new Error("Presupuesto no encontrado");
       res.status(404).json({ message: error.message });
@@ -48,4 +48,24 @@ export const validateBudgetExist = async (
     console.log(error);
     res.status(500).json({ message: "Hubo un error" });
   }
+};
+
+export const validateBudgetInput = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  await body("name")
+    .notEmpty()
+    .withMessage("El nombre del presupuesto no puede ir vacio")
+    .run(req);
+  await body("amount")
+    .notEmpty()
+    .withMessage("La cantidad del presupuesto no puede ir vacio")
+    .isNumeric()
+    .withMessage("Cantidad no válida")
+    .custom((value) => value > 0)
+    .withMessage("presupuesto debe ser mayor a 0")
+    .run(req);
+  next();
 };
