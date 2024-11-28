@@ -14,21 +14,24 @@ export const validateBudgetId = async (
   res: Response,
   next: NextFunction
 ) => {
-  await param("id")
+  await param("budgetId")
     .isInt()
     .withMessage("ID no válido")
+    .bail()
     .custom((value) => value > 0)
     .withMessage("ID no válido")
+    .bail()
     .run(req);
+
   let errors = validationResult(req);
+
   if (!errors.isEmpty()) {
-    res.status(400).json({ errors: errors.array() });
-    return;
+    return res.status(400).json({ errors: errors.array() });
   }
   next();
 };
 
-export const validateBudgetExist = async (
+export const validateBudgetExists = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -36,17 +39,16 @@ export const validateBudgetExist = async (
   try {
     const { budgetId } = req.params;
     const budget = await Bugdget.findByPk(budgetId);
+
     if (!budget) {
       const error = new Error("Presupuesto no encontrado");
-      res.status(404).json({ message: error.message });
-      return;
+      return res.status(404).json({ error: error.message });
     }
     req.budget = budget;
-
     next();
   } catch (error) {
-    console.log(error);
-    res.status(500).json({ message: "Hubo un error" });
+    // console.log(error)
+    res.status(500).json({ error: "Hubo un error" });
   }
 };
 

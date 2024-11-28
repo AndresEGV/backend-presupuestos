@@ -3,16 +3,15 @@ import {
   Column,
   Model,
   DataType,
-  HasMany,
-  BelongsTo,
   ForeignKey,
+  BelongsTo,
 } from "sequelize-typescript";
-import Expense from "./Expense";
+import Bugdget from "./Budget";
 
 @Table({
-  tableName: "bugdgets",
+  tableName: "expenses",
 })
-class Bugdget extends Model {
+class Expense extends Model {
   @Column({
     type: DataType.STRING(100),
   })
@@ -22,11 +21,11 @@ class Bugdget extends Model {
   })
   declare amount: number;
 
-  @HasMany(() => Expense, {
-    onUpdate: "CASCADE",
-    onDelete: "CASCADE",
-  })
-  declare expenses: Expense[];
+  @ForeignKey(() => Bugdget)
+  declare bugdgetId: number;
+
+  @BelongsTo(() => Bugdget)
+  declare budget: Bugdget;
 }
 
-export default Bugdget;
+export default Expense;
