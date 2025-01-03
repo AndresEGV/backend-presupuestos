@@ -6,17 +6,22 @@ import {
   HasMany,
   BelongsTo,
   ForeignKey,
+  AllowNull,
 } from "sequelize-typescript";
 import Expense from "./Expense";
+import User from "./User";
 
 @Table({
   tableName: "bugdgets",
 })
 class Bugdget extends Model {
+  @AllowNull(false)
   @Column({
     type: DataType.STRING(100),
   })
   declare name: string;
+
+  @AllowNull(false)
   @Column({
     type: DataType.DECIMAL,
   })
@@ -27,6 +32,12 @@ class Bugdget extends Model {
     onDelete: "CASCADE",
   })
   declare expenses: Expense[];
+
+  @ForeignKey(() => User)
+  declare userId: number;
+
+  @BelongsTo(() => User)
+  declare user: User;
 }
 
 export default Bugdget;

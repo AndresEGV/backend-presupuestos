@@ -5,6 +5,7 @@ import {
   DataType,
   ForeignKey,
   BelongsTo,
+  AllowNull,
 } from "sequelize-typescript";
 import Bugdget from "./Budget";
 
@@ -12,10 +13,12 @@ import Bugdget from "./Budget";
   tableName: "expenses",
 })
 class Expense extends Model {
+  @AllowNull(false)
   @Column({
     type: DataType.STRING(100),
   })
   declare name: string;
+  @AllowNull(false)
   @Column({
     type: DataType.DECIMAL,
   })
