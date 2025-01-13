@@ -42,7 +42,7 @@ class User extends Model {
   @Column({
     type: DataType.BOOLEAN,
   })
-  declare confirm: string;
+  declare confirm: boolean;
 
   @HasMany(() => Bugdget, {
     onUpdate: "CASCADE",
