@@ -68,3 +68,16 @@ export const validateExpenseExists = async (
     res.status(500).json({ error: "Hubo un error" });
   }
 };
+
+export const belongsToBudget = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  if (req.budget.id !== req.expense.bugdgetId) {
+    const error = new Error("Acción no válida");
+    res.status(403).json({ error: error.message });
+    return;
+  }
+  next();
+};

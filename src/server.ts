@@ -4,6 +4,7 @@ import morgan from "morgan";
 import { db } from "./config/db";
 import budgetRouter from "./routes/budgetRouter";
 import authRouter from "./routes/authRouter";
+import cors from "cors";
 
 async function connectDB() {
   try {
@@ -20,7 +21,13 @@ connectDB();
 const app = express();
 
 app.use(morgan("dev"));
-
+app.use(
+  cors({
+    origin: process.env.FRONTEND_URL, // Permite solicitudes desde tu frontend
+    methods: ["GET", "POST", "PUT", "DELETE"], // Métodos permitidos
+    credentials: true, // Permitir cookies y encabezados de autorización
+  })
+);
 app.use(express.json());
 
 app.use("/api/budgets", budgetRouter);
