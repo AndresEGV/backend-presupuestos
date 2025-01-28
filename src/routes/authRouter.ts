@@ -63,6 +63,7 @@ router.post(
 );
 
 router.get("/user", authenticate, AuthController.user);
+router.put("/user", authenticate, AuthController.updateUser);
 
 router.post(
   "/update-password",
